@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author pupil
  */
-@WebServlet(name = "MyServlet", urlPatterns = {"/page1", "/page2", "/page3", "/page4", "/giveBook"})
+@WebServlet(name = "MyServlet", urlPatterns = {"/page1", "/page2", "/page3", "/page4", "/giveBook", "/page5"})
 public class MyServlet extends HttpServlet {
 
     /**
@@ -80,6 +80,8 @@ public class MyServlet extends HttpServlet {
             }
             Calendar c = new GregorianCalendar();
             History history = new History(giveBook, takeReader, c.getTime());
+            request.setAttribute("history", history);
+            request.getRequestDispatcher("/WEB-INF/page5.jsp").forward(request, response);
         }
 
         }
